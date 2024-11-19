@@ -35,26 +35,32 @@ Ensure that you have the following installed:
 
 ---
 
-## Check your installed versions with:
-```bash
+## Installation
+
+### Check your installed versions with:
+```
 python --version
 django-admin --version
+```
 
----
-
-## Apply Migrations:
-```bash
+### Apply Migrations:
+```
 python manage.py migrate
+```
 
-## Create a Superuser:
-```bash
+### Create a Superuser:
+```
 python manage.py createsuperuser
+```
 Follow the prompts to create an admin account.
 
-## Run the Server:
-```bash
+### Run the Server:
+```
 python manage.py runserver
+```
 The API will be available at http://127.0.0.1:8000.
+
+---
 
 ## Usage
 
@@ -67,9 +73,10 @@ The API will be available at http://127.0.0.1:8000.
 **Example Request:**
 ```http
 GET /api/invoices/search/?seller=ABC&date=2024-11-01
+```
 
 Response:
-
+```
 json
 {
   "seller": "ABC",
@@ -83,6 +90,7 @@ json
     }
   ]
 }
+```
 
 ### 2. Bulk Upload Invoices
 Upload multiple invoices via a CSV file using the `import_invoices` management command.
@@ -93,19 +101,17 @@ seller_name,invoice_date,amount,file
 ABC,2024-11-01,500.0,invoices/abc_invoice_1.pdf
 XYZ,2024-11-02,300.5,invoices/xyz_invoice_2.png
 DEF,2024-11-03,750.0,invoices/def_invoice_3.pdf
-Command:
-
-bash
+```
+Command
+```
 python manage.py import_invoices <path_to_csv_file>
+```
 Example:
-
-bash
+```
 python manage.py import_invoices demo_invoices.csv
+```
 
-bash
-python manage.py import_invoices <path_to_csv_file>
-
-3. Admin Interface
+### 3. Admin Interface
 Access the admin interface at: http://127.0.0.1:8000/admin/ Log in using the superuser credentials to add, edit, delete, or view invoices.
 
 ### 4. Unit Tests
@@ -128,4 +134,5 @@ InvoiceManager/
 │   ├── urls.py        # URL routing
 │   ├── wsgi.py        # WSGI application
 ├── media/             # Uploaded invoice files
-├── manage.py          
+├── manage.py
+```
